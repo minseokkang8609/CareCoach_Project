@@ -21,6 +21,8 @@ import pwdconv.PwdChange;
 @Controller
 public class memberController {
 	
+
+			
 	@Autowired
 	private MemberService memberService;
 	
@@ -54,11 +56,11 @@ public class memberController {
     		HttpSession session) throws Exception{
     	response.setContentType("text/html;charset=UTF-8");
     	PrintWriter out=response.getWriter();
-    	
+
     	session.invalidate();//세션 만료 => 로그아웃
     	
     	out.println("<script>");
-    	out.println("alert('로그아웃 되었습니다!');");
+    	out.println("alert('로그아웃 되었습니다.');");
     	out.println("location='/';");
     	out.println("</script>");
     	
@@ -73,7 +75,7 @@ public class memberController {
     	
     	if(id == null) {
     		out.println("<script>");
-    		out.println("alert('다시 로그인 하세요!');");
+    		out.println("alert('다시 로그인 하세요.');");
     		out.println("location='member_login';");
     		out.println("</script>");
     		
@@ -93,18 +95,19 @@ public class memberController {
         
         if(m == null) {
         	out.println("<script>");
-        	out.println("alert('가입 안된 회원입니다.!');");
+        	out.println("alert('가입 안된 회원입니다.');");
         	out.println("history.back();");
         	out.println("</script>");
         }else {
         	if(!m.getPassword().equals(password)) {
         		out.println("<script>");
-        		out.println("alert('비번이 다릅니다!');");
+        		out.println("alert('비번이 다릅니다.');");
         		out.println("history.go(-1);");
         		out.println("</script>");        		
         	}else {
         		session.setAttribute("id",user_id);//세션 id키이름에 아이디를 저장
-        		return new ModelAndView("redirect: /");
+        		session.setMaxInactiveInterval(1800); // 세션 타임아웃을 30분(1800초)으로 설정
+				return new ModelAndView("redirect:/");
         	}
         }
     	return null;
@@ -162,7 +165,7 @@ public class memberController {
         	 session.invalidate();
         	 
         	 out.println("<script>");
-        	 out.println("alert('회원 탈퇴 했습니다!');");
+        	 out.println("alert('회원 탈퇴 했습니다.');");
         	 out.println("location='/';");
         	 out.println("</script>");
      	}
