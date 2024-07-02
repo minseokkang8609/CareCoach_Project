@@ -10,7 +10,7 @@
 	<aop:aspectj-autoproxy />
 	<!-- Root Context: defines shared resources visible to all other web components -->
 
-
+	
 	<!-- 스프링과 오라클 연결 JDBC -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
