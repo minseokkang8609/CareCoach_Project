@@ -1,15 +1,14 @@
 package com.carecoach.vo;
 
-import lombok.Data;
-
-@Data
 public class CommentsVO {
 
-	private int comment_id;
-	private int contents_id;
+	private int id;
+	private int post_id;
 	private String user_id;
+	private int parent_id;
 	private String content;
 	private String created_dt;
 	private String updated_dt;
+	private int is_deleted;
 	
 }

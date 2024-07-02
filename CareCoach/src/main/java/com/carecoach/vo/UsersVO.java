@@ -1,7 +1,7 @@
 package com.carecoach.vo;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -12,8 +12,9 @@ import lombok.ToString;
 
 public class UsersVO {
 
+	private int user_no;
 	private String user_id;
-	private String nickname;
+	private String name;
 	private String password;
 	private String email;
 	private int is_deleted;

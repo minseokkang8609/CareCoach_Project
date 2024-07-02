@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class TermsVO {
 
-	private int terms_id;
-	private String content;
+	private int id;
 	private String title;
+	private String content;
 	
 	
 }
